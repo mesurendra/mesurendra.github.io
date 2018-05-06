@@ -85,7 +85,7 @@ h6, .h6 { font-size: 0.75rem; }
 
 .button-blue:disabled, .button-blue.is-disabled { opacity: .5; }
 
-.highlight { -webkit-text-size-adjust: none; }
+.highlight { -webkit-text-size-adjust: none; background: #eef; }
 
 .highlight .c, .highlight .cs, .highlight .cm, .highlight .cp, .highlight .c1 { color: #666; font-style: italic; }
 
