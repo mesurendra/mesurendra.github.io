@@ -316,11 +316,11 @@ body { box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: 
 
 .right { float: right; }
 
-.site-header { border-bottom: 1px solid #e8e8e8; background-color: #fff; opacity: 0.95; position: fixed; left: 0px; top: 0px; width: 100%; z-index: 50; }
+.site-header { border-bottom: 1px solid #e8e8e8; background-color: #222222; opacity: 0.95; position: fixed; left: 0px; top: 0px; width: 100%; z-index: 50; }
 
-.site-title { font-size: 20px; line-height: 56px; letter-spacing: -1px; margin-bottom: 0; }
+.site-title { font-size: 30px; line-height: 56px; color: #fff; letter-spacing: -1px; margin-bottom: 0; }
 
-.site-nav { float: right; line-height: 56px; }
+.site-nav { float: right; line-height: 56px; color: #fff; }
 .site-nav .page-link { line-height: 1.5; }
 .site-nav .page-link:not(:first-child) { margin-left: 10px; }
 

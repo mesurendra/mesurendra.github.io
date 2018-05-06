@@ -1,6 +1,6 @@
 .site-header {
     border-bottom: 1px solid $grey-color-light;
-    background-color: #fff;
+    background-color: #222222;
     opacity: 0.95;
     position:fixed;
     left:0px;
@@ -10,14 +10,16 @@
 }
 
 .site-title {
-    font-size: 20px;
+    font-size: 30px;
     line-height: $nav-height;
+    color: #fff;
     letter-spacing: -1px;
     margin-bottom: 0;
 }
 .site-nav {
     float: right;
     line-height: $nav-height;
+    color: #fff;
     .page-link{
         line-height: $line-height;
         // Gaps between nav items, but not on the first one
