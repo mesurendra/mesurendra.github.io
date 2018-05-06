@@ -7,4 +7,5 @@ group :jekyll_plugins do
     gem 'jemoji'
     gem 'jekyll-admin'
     gem 'jekyll-archives'
+    gem 'jekyll-livereload'
 end
