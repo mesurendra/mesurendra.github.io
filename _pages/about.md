@@ -2,7 +2,7 @@
 layout: about
 permalink: /
 title: <strong>Surendra</strong> Sedhai
-description: Data Scientist, PhD from Nanyang Technological University, Singapore.
+# description: Data Scientist, PhD from Nanyang Technological University, Singapore.
 
 profile:
   align: right
