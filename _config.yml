@@ -1,13 +1,12 @@
 # -----------------------------------------------------------------------------
 # Site settings
 # -----------------------------------------------------------------------------
-name: Suvash Sedhain
-email: mesuvash@gmail.com
+name: Surendra SEdhai
+email: mesurendra@gmail.com
 description: > # this means to ignore newlines until "url:"
-  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+  Lets explore :) .
 footer_text: >
   Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 
 url: # the base hostname & protocol for your site
 baseurl:  # the subpath of your site, e.g. /blog/
@@ -16,18 +15,16 @@ last_updated: # leave blank if you don't want to display last updated
 # -----------------------------------------------------------------------------
 # Social integration
 # -----------------------------------------------------------------------------
-quora_username: Suvash-Sedhain
-github_username: mesuvash
-twitter_username: suvsh
-linkedin_username: suvashsedhain
-scholar_authorid: z_hDjNYAAAAJ  # put your google scholar author id
+twitter_username: surendra_sedhai
+linkedin_username: mesurendra
+scholar_authorid: aaa  # put your google scholar author id
 contact_note: >
-    reach me at me<myname> at gmail dot com.
+    reach me at gmail dot com.
 # -----------------------------------------------------------------------------
 # Blog
 # -----------------------------------------------------------------------------
-blog_name: Boosting Ideas
-blog_description: Ramblings about maching learning, crypto-currency and programming
+blog_name: Explore
+blog_description: Data Science, Machine Learning and Blockchain
 
 
 # Pagination
