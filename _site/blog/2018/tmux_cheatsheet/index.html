@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Surendra Sedhai | Announcement_1</title>
+  <title>Surendra Sedhai | Tmux Cheatsheet</title>
   <meta name="description" content="Lets explore :) .
 ">
 
   <link rel="shortcut icon" href="http://localhost:4000/assets/img/favicon.ico">
 
   <link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/news/announcement_1/">
+  <link rel="canonical" href="http://localhost:4000/blog/2018/tmux_cheatsheet/">
 <script src="http://127.0.0.1:35729/livereload.js"></script></head>
 
 
@@ -69,12 +69,103 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Announcement_1</h1>
-    <p class="post-meta">May 24, 2018</p>
+    <h1 class="post-title">Tmux Cheatsheet</h1>
+    <p class="post-meta">May 16, 2018</p>
   </header>
 
   <article class="post-content">
-    
+    <h3 id="start-tmux">Start Tmux</h3>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>tumx
+</code></pre>
+</div>
+
+<h3 id="session">Session</h3>
+
+<p>Create a new session with a name</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>tmux new -s &lt;session-name&gt;
+</code></pre>
+</div>
+
+<p>List of existing session</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>tmux ls
+</code></pre>
+</div>
+
+<p>Attach to the existing session</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>tmux attach -t &lt;session name/number&gt;
+</code></pre>
+</div>
+
+<p>Rename tmux session</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>tmux rename-session -t &lt;previous name/no&gt; &lt;new-name&gt;
+</code></pre>
+</div>
+
+<p>Detach when inside tmux without ending the session</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>tmux detach
+
+</code></pre>
+</div>
+
+<h3 id="split-pane">Split Pane</h3>
+
+<p>Vertical split</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>C-b, %
+</code></pre>
+</div>
+
+<p>Horizontal split</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>C-b, <span class="s2">"
+</span></code></pre>
+</div>
+
+<p>Navigate Pane</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>C-b, &lt;arrow key&gt;
+</code></pre>
+</div>
+
+<p>Closing pane</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span><span class="nb">exit</span>
+<span class="gp">&gt; </span>C-d
+</code></pre>
+</div>
+
+<h3 id="windows">Windows</h3>
+
+<p>Creating new window:</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>C-b, c
+
+</code></pre>
+</div>
+
+<h4 id="navigate-windows">Navigate windows</h4>
+
+<p>Previous window</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>C-b, p
+</code></pre>
+</div>
+
+<p>Next window</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>C-b, n
+</code></pre>
+</div>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>C-b, &lt;number&gt;
+</code></pre>
+</div>
+
 
   </article>
 

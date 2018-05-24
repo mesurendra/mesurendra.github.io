@@ -13,7 +13,7 @@
   <link rel="shortcut icon" href="http://localhost:4000/assets/img/favicon.ico">
 
   <link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/blog/2016/Backprop/">
+  <link rel="canonical" href="http://localhost:4000/blog/2017/Backprop/">
 <script src="http://127.0.0.1:35729/livereload.js"></script></head>
 
 
@@ -70,7 +70,7 @@
 
   <header class="post-header">
     <h1 class="post-title">Backpropagation Demystified</h1>
-    <p class="post-meta">September 9, 2016</p>
+    <p class="post-meta">September 9, 2017</p>
   </header>
 
   <article class="post-content">
@@ -149,7 +149,7 @@ The computations of layer-3 is reused for the computation of layer 2. Note that,
 
 <script type="math/tex; mode=display">\frac{\partial E}{\partial z_1^{(2)}}  = \frac{\partial E}{\partial z_1^{(3)}} \frac{\partial z_1^{(3)}}{\partial a_1^{(3)}} \frac{\partial a_1^{(2)}}{\partial z_1^{(2)}} = \delta_1^{(3)}  \frac{\partial (a_1^{(2)} * w_5 + a_1^{(2)} * w_6)}{\partial a_1^{(2)}}  \frac{\partial f(z_1^{(2)})}{\partial z_1^{(2)}} = \delta_1^{(3)} * w_5 *f'(z_1^{(2)}) = \delta_1^{(2)}</script>
 
-<p>Similarly, 
+<p>Similarly,
 <script type="math/tex">\frac{\partial E}{\partial z_2^{(2)}} = \delta_1^{(3)} * w_6 * f'(z_2^{(2)}) = \delta_2^{(2)}</script></p>
 
 <p>It is observed that term which appears in the computation of <script type="math/tex">\frac{\partial E}{\partial w_5}</script> will be memorized and reutilized in the computation of  <script type="math/tex">\frac{\partial E}{\partial w_1}</script>.</p>
@@ -161,7 +161,7 @@ The computations of layer-3 is reused for the computation of layer 2. Note that,
 <p>let’s say <script type="math/tex">x_1 = a_1^{(1)}</script> and  <script type="math/tex">x_2 = a_2^{(1)}</script>
 Then,  <script type="math/tex">\frac{\partial E}{\partial w_1}  =  \delta_1^{(2)} * a_1^{(1)}</script></p>
 
-<p>We start with  following expression, 
+<p>We start with  following expression,
 <script type="math/tex">\frac{\partial E}{\partial w_1}  = \frac{\partial E}{\partial a_1^{(3)}} \frac{\partial a_1^{(3)}}{\partial z_1^{(3)}}   \frac{\partial z_1^{(3)}}{\partial a_1^{(2)}} \frac{\partial a_1^{(2)}}{\partial z_1^{(2)}} \frac{\partial z_1^{(2)}}{\partial w_1}</script> which looks like there is a lot of computation. But, utilizing the dynamic programming in each layer computation is minimized. Now,  <script type="math/tex">\frac{\partial E}{\partial w_1}  =  \delta_1^{(2)} * a_1^{(1)}</script> which looks much simpler and also computationally very efficient.</p>
 
 <p>Similarly, the expression for the partial derivative of error w.r.t. remaining weights can be computed. We observed that if we break down a neural network into a detailed diagram as in Figure 2 then it would be easier to come up with <strong>chain rule</strong>. Once we have the expression, the long and complex expression can be computed efficiently using <strong>dynamic programming</strong>.</p>
