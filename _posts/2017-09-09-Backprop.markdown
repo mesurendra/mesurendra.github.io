@@ -4,31 +4,26 @@ title: Backpropagation Demystified
 mathjax: true
 date: 2017-09-09
 ---
-
-The main goal of training a neural network is to determine the value of each connection weight which minimize the specified cost function. Backpropagation is the standard way of training neural network where weights of the neural network connections are updated as follows
+Backpropagation is a well-established approach to train a neural network. The main goal of training a neural network is to determine the optimum values of connection weights (parameters) of the neural network. Following equation is used to update the connection weights
 
 $$w_i := w_i - \alpha *  \frac{\partial E(w_i)}{\partial w_i}$$
 
+where, $w_i$ is the connection weight and $\alpha$ is the learning rate. Learning rate $\alpha$ controls magnitude of the change in the connection weight on each step of training process.
 
+In the above equation, partial derivative of the $E(w_i)$ w.r.t  $w_i$ give the direction in which weight should be changed to reduce the error. In the equation, the only computationally expensive operation is to compute partial derivative. Computing partial derivative is exponentially expensive when the number of layers of neural network increases. **Backpropagation is a cleaver and efficient way to compute partial derivative of error w.r.t. connection weight of the neural network**.
 
+---
+#### **Refresher: Intuitive meaning of derivative and partial derivative**
+Let's assume $$x_1$$ is time allocated by a man for exercise and $$y$$ is the weight of the man. **The derivative of $$y$$  w.r.t.  $$x_1$$ means if the man makes a small change in the time allocated for the exercise how much his weight will change**. Mathematically, the derivative of $$y$$ w.r.t.  $$x_1$$ is represented as $$\frac{dy}{dx_1}$$
 
-Learning rate controls how much we want to learn in each step of training process. Learning rate is determined empirically.
+We know that diet ($$x_2$$) also has an effect on the weight of the person.  Analysis of change in the weight of the person w.r.t. a  small change in the exercise keeping diet same is given by the partial derivative of $$y$$ &nbsp; w.r.t. &nbsp; $$x_1$$. Mathematically, the partial derivative of $$y$$ w.r.t. $$\large x_1$$ is represented as $$\frac{\partial y}{\partial x_1}$$. Similarly, if the person keeps the time of exercise $$x_1$$ same and makes a small change in the diet $$x_2$$ it is represented as the partial derivative of $$y$$ w.r.t. $$x_2$$ which is represented as $$\frac{\partial y}{\partial x_2}$$
 
-Partial derivative of cost function w.r.t. weight gives the direction in which weight should be changed to improve the performance of the system. Above expression shows that to update weight of the connection, the partial derivative of cost function $E(w_i)$ with respect to the weight $$w_i$$ need to be computed. **Backpropagation is an efficient way to compute partial derivative of error w.r.t. each connection weight of the neural network**.
+---
 
-
-### Refresher: Intuitive meaning of derivative and partial derivative
-Let's assume $$x_1$$ is time allocated by a man for exercise and $$y$$ is the weight of the man. The derivative of $$y$$  w.r.t.  $$x_1$$ means if the man makes a small change in the time allocated for the exercise how much his weight will change. Mathematically, the derivative of $$y$$ w.r.t.  $$x_1$$ is represented as $$\frac{dy}{dx_1}$$
-
-We know that diet ($$x_2$$) also has an effect on the weight of the person.  Analysis of change in the weight of the person w.r.t. a  small change in the exercise keeping diet same is given by the partial derivative of $$y$$ &nbsp; w.r.t. &nbsp; $$x_1$$. Mathematically, the partial derivative of $$y$$ w.r.t. $$\large x_1$$ is represented as $$\frac{\partial y}{\partial x_1}$$. Similarly, if the person keeps the time of exercise $$x_1$$ same and makes a small change in the diet $$x_2$$ it is represented as the partial derivative of $$y$$ w.r.t. $$x_2$$. Partial derivative of $$y$$ &nbsp; w.r.t. &nbsp; $$x_2$$ is represented as $$\frac{\partial y}{\partial x_2}$$
-
-
-  ![raw](/assets/img/nn/raw-nn.png){: .center-image}
+ ![raw](/assets/img/nn/raw-nn.png){: .center-image}
 <center><h4>Figure 1: Toy neural network</h4></center>
 
-Figure 1 shows one of the simplest possible neural network which is good enough to understand details of the backpropagation algorithm. We consider input-layer as layer-1 ($$L_1$$), hidden-layer as ($$L_2$$) and output-layer as ($$L_3$$). $$ x_1$$  and $$ x_2$$ are input, blue nodes are nodes of hidden-layer and the red node is output-node. There are 6 connection weights $$ w_1$$ to $$ w_6$$.
-
-#### We want to minimize the square of error
+Figure 1 shows one of the simplest possible neural network which is good enough to understand details of the backpropagation algorithm. We consider input-layer as layer-1 ($$L_1$$), hidden-layer as ($$L_2$$) and output-layer as ($$L_3$$). $$ x_1$$  and $$ x_2$$ are input, blue nodes are nodes of hidden-layer and the red node is output-node. There are 6 connection weights $$ w_1$$ to $$ w_6$$. **In the training process we want to determine values of the connection weights which  minimize the square of error.**
 
  Square Error  (E) = $$\frac{(y-\hat{y})^2}{2}$$
 
