@@ -1,12 +1,16 @@
 ---
 layout: post
 title: Backpropagation Demystified
+mathjax: true
 date: 2017-09-09
 ---
 
 The main goal of training a neural network is to determine the value of each connection weight which minimize the specified cost function. Backpropagation is the standard way of training neural network where weights of the neural network connections are updated as follows
 
-$$\large w_i := w_i - \alpha *  \frac{\partial E(w_i)}{\partial w_i}$$
+$$w_i := w_i - \alpha *  \frac{\partial E(w_i)}{\partial w_i}$$
+
+
+
 
 Learning rate controls how much we want to learn in each step of training process. Learning rate is determined empirically.
 
@@ -36,20 +40,11 @@ A node (blue/red) in Figure 1 represents three computations namely,  multiplicat
   ![raw](/assets/img/nn/nn-detail.png){: .center-image}
 <center><h4>Figure 2: Equivalent detailed view of the toy neural network</h4></center>
 
-The way to read $$ z_1^{(2)}$$ is z of  node-1 in layer-2 [**Note: subscript => item number and superscript => layer-number**] . $$ a_1^{(2)}$$ is the activation score of node-1 in layer-2. Following expressions can be obtained from figure 2
+The way to read $$ z_1^{(2)}$$ is z of  node-1 in layer-2 [**Note: subscript => item number and superscript => layer-number**] . $$ a_1^{(2)}$$ is the activation score of node-1 in layer-2. Following expressions can be obtained from figure 2 <br />
+$$z_1^{(2)} = x_1 * w_1 + x_2 * w_3 $$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  $$ z_2^{(2)} = x_1 * w_2 + x_2 * w_4$$ <br />
+$$  a_1^{(2)} = f(z_1^{(2)})$$   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $$  a_2^{(2)} = f(z_2^{(2)})$$ <br/>
+$$  z_1^{(3)} = a_1^{(2)} * w_5 + a_1^{(2)} * w_6$$  &nbsp; &nbsp; &nbsp; &nbsp;  $$  a_1^{(3)} = f(z_1^{(3)}) = \hat{y}$$ <br/>
 
-$$ z_1^{(2)} = x_1 * w_1 + x_2 * w_3 $$
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-$$  z_2^{(2)} = x_1 * w_2 + x_2 * w_4$$
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-$$  a_1^{(2)} = f(z_1^{(2)})$$
-
-
-$$  a_2^{(2)} = f(z_2^{(2)})$$
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-$$  z_1^{(3)} = a_1^{(2)} * w_5 + a_1^{(2)} * w_6$$
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-$$  a_1^{(3)} = f(z_1^{(3)}) = \hat{y}$$
 where, f() is a non-linearity function. Usually, non-linear function f() are **sigmoid, tanh or Relu**.
 
 Backpropagation is all about computing partital derivative efficiently. Using backpropagation,  we can calculate $$ \frac{\partial E}{\partial w_i}$$ effectively where i = {1, 2, 3, 4, 5, 6}.

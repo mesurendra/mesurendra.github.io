@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
   <link rel="canonical" href="http://localhost:4000/blog/2016/command-line/">
-<script src="http://127.0.0.1:35729/livereload.js"></script></head>
+</head>
 
 
   <body>
@@ -51,6 +51,8 @@
             <a class="page-link"  style="color:white"  href="http://localhost:4000/publications/">Publications</a>
           
         
+          
+        
 
         <!-- CV link -->
         <!-- <a class="page-link" href="http://localhost:4000/assets/pdf/CV.pdf">vitae</a> -->
@@ -69,13 +71,15 @@
         <div class="post">
 
   <header class="post-header">
+    
+
     <h1 class="post-title">Command Line Tips and Tricks</h1>
     <p class="post-meta">June 23, 2016</p>
   </header>
 
   <article class="post-content">
     <h3 id="moving-cursor-in-commandline">Moving cursor in commandline</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Clears the entire line (press ctrl and u together)</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Clears the entire line (press ctrl and u together)</span>
 <span class="nv">$ctrl</span> + u
 
 <span class="c"># Delete word before the cursor</span>
@@ -84,17 +88,15 @@
 <span class="c"># I rarely use above keys since i joined vi camp:P</span>
 <span class="c"># Enjoy the power of vi in command line</span>
 <span class="c"># I really love it so its in may .bash_profile :)</span>
-<span class="nv">$set</span> -o vi
-</code></pre>
-</div>
+<span class="nv">$set</span> <span class="nt">-o</span> vi
+</code></pre></div></div>
 <h3 id="show-working-directory">Show working directory</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nv">$pwd</span>
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$pwd</span>
+</code></pre></div></div>
 
 <h3 id="listing-file">Listing file</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># List all file and folder in directory ~/Desktop with additional information</span>
-<span class="nv">$ls</span> -al ~/Deskop
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># List all file and folder in directory ~/Desktop with additional information</span>
+<span class="nv">$ls</span> <span class="nt">-al</span> ~/Deskop
 
 <span class="c"># List all the file having 2 character extension</span>
 <span class="nv">$ls</span> <span class="k">*</span>.??
@@ -103,15 +105,14 @@
 <span class="nv">$ls</span> <span class="o">[</span>ks]<span class="k">*</span>
 
 <span class="c"># List all file whose first character is not k or s</span>
-<span class="nv">$ls</span> <span class="o">[</span>!ks]<span class="k">*</span>
+<span class="nv">$ls</span> <span class="o">[!</span>ks]<span class="k">*</span>
 
 <span class="c"># List file whose second character is u or i</span>
 <span class="nv">$ls</span> ?[ui]<span class="k">*</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="change-directory">Change Directory</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Take you to home directory</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Take you to home directory</span>
 <span class="nv">$cd</span>
 
 <span class="c"># Change directory to Documents</span>
@@ -122,134 +123,123 @@
 
 <span class="c"># Move last working directory</span>
 <span class="nv">$cd</span> -
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="make-directory">Make directory</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Make entire complex directory trees  inside current location ./work/a/b/c</span>
-<span class="gp">$ </span>mkdir -p work/a/b/c
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Make entire complex directory trees  inside current location ./work/a/b/c</span>
+<span class="nv">$ </span>mkdir <span class="nt">-p</span> work/a/b/c
 
 <span class="c"># Make directory tree</span>
-<span class="nv">$mkdir</span> -p work/<span class="o">{</span>d1,d2<span class="o">}</span>/<span class="o">{</span>src,bin,bak<span class="o">}</span>
-</code></pre>
-</div>
+<span class="nv">$mkdir</span> <span class="nt">-p</span> work/<span class="o">{</span>d1,d2<span class="o">}</span>/<span class="o">{</span>src,bin,bak<span class="o">}</span>
+</code></pre></div></div>
 
 <h3 id="delete-files-and-folder">Delete files and folder</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Remove unwoantedFile.txt</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Remove unwoantedFile.txt</span>
 <span class="nv">$rm</span>  unwoantedFile.txt
 
 <span class="c"># Remove all file having extension .pyc</span>
 <span class="nv">$rm</span> <span class="k">*</span>.pyc
 
 <span class="c"># Remove directory unwnatedFolder</span>
-<span class="nv">$rm</span> -r unwnatedFolder
-</code></pre>
-</div>
+<span class="nv">$rm</span> <span class="nt">-r</span> unwnatedFolder
+</code></pre></div></div>
 
 <h3 id="rename-file">Rename file</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Change the name of the file from  file.txt text to file.xml</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Change the name of the file from  file.txt text to file.xml</span>
 <span class="c"># Both commands do same work. Personally i prefer second one :)</span>
 <span class="nv">$mv</span> /home/abc/file.txt /home/abc/file.xml
 <span class="nv">$mv</span> /home/abc/file.<span class="o">{</span>txt,xml<span class="o">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="copy-file">Copy file</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nv">$cp</span>  /source/folder/a.txt /destination/a.txt
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$cp</span>  /source/folder/a.txt /destination/a.txt
+</code></pre></div></div>
 
 <h3 id="searching-files">Searching files</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Find files/Folder haveing name workspace</span>
-<span class="nv">$find</span> . -name  workspace
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Find files/Folder haveing name workspace</span>
+<span class="nv">$find</span> <span class="nb">.</span> <span class="nt">-name</span>  workspace
 
 <span class="c"># Find file  used in last 10 mins</span>
-<span class="nv">$find</span> / -mmin -10
+<span class="nv">$find</span> / <span class="nt">-mmin</span> <span class="nt">-10</span>
 
 <span class="c"># Find files modified between now and 1 day ago  (i.e., within the past 24 hours)</span>
-<span class="nv">$find</span> . -mtime 0
+<span class="nv">$find</span> <span class="nb">.</span> <span class="nt">-mtime</span> 0
 
 <span class="c"># Find files modified less than 1 day ago  (i.e., within the past 24 hours, as before)</span>
-<span class="nv">$find</span> . -mtime -1
+<span class="nv">$find</span> <span class="nb">.</span> <span class="nt">-mtime</span> <span class="nt">-1</span>
 
 <span class="c"># Find files modified between 24 and 48 hours ago</span>
-<span class="nv">$find</span> . -mtime 1
+<span class="nv">$find</span> <span class="nb">.</span> <span class="nt">-mtime</span> 1
 
 <span class="c"># Find files modified more than 48 hours ago</span>
-<span class="nv">$find</span> . -mtime +1
+<span class="nv">$find</span> <span class="nb">.</span> <span class="nt">-mtime</span> +1
 
 <span class="c"># Find files modified between  6 and 9 minutes ago</span>
-<span class="nv">$find</span> . -mmin +5 -mmin -10
+<span class="nv">$find</span> <span class="nb">.</span> <span class="nt">-mmin</span> +5 <span class="nt">-mmin</span> <span class="nt">-10</span>
 
 <span class="c"># These options can be combined</span>
-<span class="nv">$find</span> . -type f -mtime 0 -iname <span class="k">*</span>.mp
+<span class="nv">$find</span> <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">-mtime</span> 0 <span class="nt">-iname</span> <span class="k">*</span>.mp
 
 <span class="c"># Find file which has permission 644</span>
-<span class="nv">$find</span> . -perm 644
+<span class="nv">$find</span> <span class="nb">.</span> <span class="nt">-perm</span> 644
 
 <span class="c"># Find all the txt files which contains word linux</span>
-<span class="nv">$find</span> . –name <span class="s2">"*.txt"</span> –print | xargs grep <span class="s2">"linux"</span>
-</code></pre>
-</div>
+<span class="nv">$find</span> <span class="nb">.</span> –name <span class="s2">"*.txt"</span> –print | xargs <span class="nb">grep</span> <span class="s2">"linux"</span>
+</code></pre></div></div>
 
 <h3 id="work-with-compressed-file">Work with compressed file</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Create file1_file2.tar by compressing /home/file1 and /home/file2</span>
-<span class="nv">$tar</span> -cvf file1_file2.tar /home/file1 /home/file2
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Create file1_file2.tar by compressing /home/file1 and /home/file2</span>
+<span class="nv">$tar</span> <span class="nt">-cvf</span> file1_file2.tar /home/file1 /home/file2
 
 <span class="c"># Uncompress file</span>
-<span class="nv">$tar</span> -xvf file1_file2.tar
-</code></pre>
-</div>
+<span class="nv">$tar</span> <span class="nt">-xvf</span> file1_file2.tar
+</code></pre></div></div>
 
 <h3 id="file-count-in-a-directory">File count in a directory</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nv">$find</span> . -type f | wc -l
-<span class="nv">$ls</span> -laR | wc -l
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$find</span> <span class="nb">.</span> <span class="nt">-type</span> f | wc <span class="nt">-l</span>
+<span class="nv">$ls</span> <span class="nt">-laR</span> | wc <span class="nt">-l</span>
+</code></pre></div></div>
 
 <h3 id="alias-long-and-frequent-command">Alias long and frequent command</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># map ls -al to la</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># map ls -al to la</span>
 <span class="nv">$alias</span> <span class="nv">la</span><span class="o">=</span><span class="s2">"ls -al"</span>
 
 <span class="c"># i have this in my .bash_profile, i really love it</span>
 <span class="nv">$alias</span>  <span class="nv">blog</span><span class="o">=</span><span class="s2">"cd /home/surendra/abc/cde/fgh/xyz; source activate blog"</span>
 <span class="nv">$alias</span> <span class="nv">ipn</span><span class="o">=</span><span class="s2">"cd ~/Dropbox/notebooks/; source activate lab; ipython notebook "</span>
 <span class="nv">$alias</span> <span class="nv">dush</span><span class="o">=</span><span class="s2">"du -sm *|sort -n|tail"</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="kill-all-target-process">Kill all target process</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Really handy to combine simple command to do complex task.</span>
-<span class="nv">$ps</span> -ef | grep php| awk  <span class="s1">'{print $2}'</span> | xargs <span class="nb">kill</span>
-<span class="nv">$ps</span> aux | grep mypattern | awk <span class="s1">'{ print $2}'</span> | xargs <span class="nb">kill</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Really handy to combine simple command to do complex task.</span>
+<span class="nv">$ps</span> <span class="nt">-ef</span> | <span class="nb">grep </span>php| awk  <span class="s1">'{print $2}'</span> | xargs <span class="nb">kill</span>
+<span class="nv">$ps</span> aux | <span class="nb">grep </span>mypattern | awk <span class="s1">'{ print $2}'</span> | xargs <span class="nb">kill</span>
 
 <span class="c"># Kill all the process associate with port 4000</span>
-<span class="nv">$lsof</span> -i :4000| awk <span class="s1">'{ NR&gt;1 print $2}'</span> | xargs <span class="nb">kill</span>
-</code></pre>
-</div>
+<span class="nv">$lsof</span> <span class="nt">-i</span> :4000| awk <span class="s1">'{ NR&gt;1 print $2}'</span> | xargs <span class="nb">kill</span>
+</code></pre></div></div>
 
 <h3 id="executing-multiple-command-at-once">Executing multiple command at once</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Run two command in sequence as if they are typed in 2 different lines</span>
-<span class="nv">$mkdir</span> dir1; <span class="nb">cd </span>dir1
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Run two command in sequence as if they are typed in 2 different lines</span>
+<span class="nv">$mkdir</span> dir1<span class="p">;</span> <span class="nb">cd </span>dir1
 
 <span class="c"># Execute second command if first command fails</span>
-<span class="nv">$mkdir</span> dir1 <span class="o">||</span> sudo mkdir dir1
+<span class="nv">$mkdir</span> dir1 <span class="o">||</span> <span class="nb">sudo </span>mkdir dir1
 
 <span class="c"># Execute second command if first common succeed</span>
 <span class="nv">$mkdir</span> dir1 <span class="o">&amp;&amp;</span> <span class="nb">cd </span>dir1
 
 <span class="c"># Change to directory cd work/a/b/c but if the directory does not exist crate it</span>
 <span class="c"># then unzip ~/archive.tar in the location</span>
-<span class="nv">$cd</span> work/a/b/c <span class="o">||</span> mkdir -p work/a/b/c <span class="o">&amp;&amp;</span> tar xvf -C work/a/b/c ~/archive.tar
-</code></pre>
-</div>
+<span class="nv">$cd</span> work/a/b/c <span class="o">||</span> mkdir <span class="nt">-p</span> work/a/b/c <span class="o">&amp;&amp;</span> <span class="nb">tar </span>xvf <span class="nt">-C</span> work/a/b/c ~/archive.tar
+</code></pre></div></div>
 
 <h3 id="crontab-for-scheduling">Crontab for scheduling</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Edit the crontab</span>
-<span class="nv">$crontab</span> -e
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Edit the crontab</span>
+<span class="nv">$crontab</span> <span class="nt">-e</span>
 
 <span class="c"># List currnet crontab</span>
-<span class="nv">$crontab</span> -l
+<span class="nv">$crontab</span> <span class="nt">-l</span>
 
 <span class="c"># Run python file at desktop. */5 =&gt; every 5 minutes</span>
 <span class="c"># MIN   HOUR   MDAY  MON  DOW   COMMAND</span>
@@ -259,37 +249,34 @@
 00 5,10,15,20 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span>  python ~/Desktop/db_track.py
 
 <span class="c">#To remove crontag</span>
-<span class="nv">$corntab</span> -r
-</code></pre>
-</div>
+<span class="nv">$corntab</span> <span class="nt">-r</span>
+</code></pre></div></div>
 
 <h3 id="environment-variable">Environment variable</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># List all environment variables</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># List all environment variables</span>
 <span class="nv">$env</span>
 
 <span class="c"># Executable path</span>
 <span class="nv">$echo</span> <span class="nv">$PATH</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="change-mode-of-file">Change mode of file</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Set file permission write, read and execute to user, group and other (777)</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Set file permission write, read and execute to user, group and other (777)</span>
 <span class="nv">$chmod</span> 777 file1
 
 <span class="c"># Makes the permissions of file2 the same as file1</span>
-<span class="nv">$chmod</span> --reference file1 file2
-</code></pre>
-</div>
+<span class="nv">$chmod</span> <span class="nt">--reference</span> file1 file2
+</code></pre></div></div>
 
 <h3 id="command-history">Command History</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Show last used commands</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Show last used commands</span>
 <span class="k">$(</span>up arrow<span class="k">)</span>
 
 <span class="c"># Latest 20 history command</span>
 <span class="nv">$history</span>  20
 
 <span class="c"># List command history containing word mysql</span>
-<span class="nv">$history</span> 500 | grep mysql
+<span class="nv">$history</span> 500 | <span class="nb">grep </span>mysql
 
 <span class="c"># Reverse search in command history (press ctrl and r together)</span>
 <span class="nv">$Ctrl</span> + r
@@ -298,29 +285,27 @@ Repeat Ctrl + r to loop through results
 
 <span class="c"># Cancel the search and restore original line</span>
 Ctrl + g
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="to-see-the-usage-and-free-space-in-hard-drive">To see the usage and free space in hard drive</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Show free disk space in human readable way</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Show free disk space in human readable way</span>
 <span class="nv">$df</span> - h
 
 <span class="c"># Utilized system space</span>
-<span class="nv">$df</span> -lP| awk <span class="s1">'NR&gt;1 {sum +=$3 } END  {print "%d GiB", sum/2^20}'</span>
+<span class="nv">$df</span> <span class="nt">-lP</span>| awk <span class="s1">'NR&gt;1 {sum +=$3 } END  {print "%d GiB", sum/2^20}'</span>
 
 <span class="c"># Total system space</span>
-<span class="nv">$df</span> -lP| awk <span class="s1">'NR&gt;1 {sum +=$2 } END  {print "%d GiB", sum/2^20}'</span>
+<span class="nv">$df</span> <span class="nt">-lP</span>| awk <span class="s1">'NR&gt;1 {sum +=$2 } END  {print "%d GiB", sum/2^20}'</span>
 
 <span class="c"># How much disk storage directory "somedir" is using Much much more intuitive and readable.</span>
-<span class="nv">$du</span> -sh somedir
+<span class="nv">$du</span> <span class="nt">-sh</span> somedir
 
 <span class="c"># Get the 10 biggest files/folders for the current direcotry</span>
-<span class="nv">$du</span> -s <span class="k">*</span> | sort -n | tail
-</code></pre>
-</div>
+<span class="nv">$du</span> <span class="nt">-s</span> <span class="k">*</span> | sort <span class="nt">-n</span> | tail
+</code></pre></div></div>
 
 <h3 id="copy-over-remote-computer">Copy over remote computer</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Copy files from a local computer to a remote computer</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Copy files from a local computer to a remote computer</span>
 <span class="nv">$scp</span> somefile username@server:/home/username/
 
 <span class="c"># Copy files from remote computer to local computer</span>
@@ -330,17 +315,15 @@ Ctrl + g
 <span class="c"># to the other,are not going to pass through your computer. The traffic is going</span>
 <span class="c"># to pass from one server to the other directly.</span>
 <span class="nv">$scp</span> user_name1@server1:/home/user_name1/file_name user_name2@server2:/home/user_name2/
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="ssh-connection">SSH connection</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>ssh -p port number username@ip_address
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh <span class="nt">-p</span> port number username@ip_address
+</code></pre></div></div>
 
 <h3 id="miscellaneous">Miscellaneous</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Run last command as root</span>
-<span class="nv">$sudo</span> !!
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Run last command as root</span>
+<span class="nv">$sudo</span> <span class="o">!!</span>
 
 <span class="c"># Clear terminal screen</span>
 <span class="nv">$ctrl</span> + l
@@ -362,17 +345,17 @@ Ctrl + g
 <span class="nv">$wget</span> http://aaa.come/abc.pdf
 
 <span class="c"># Find location of specific **ls** command</span>
-<span class="nv">$where</span> is ls
+<span class="nv">$where</span> is <span class="nb">ls</span>
 
 <span class="c"># Displays a single line description of a command</span>
 <span class="nv">$whatis</span> chmod
 <span class="nv">$whatis</span> mkdir
 
 <span class="c"># Get detailed information of system</span>
-<span class="nv">$uname</span> -a
+<span class="nv">$uname</span> <span class="nt">-a</span>
 
 <span class="c"># View configuration of network interface</span>
-<span class="nv">$ifconfig</span> -a
+<span class="nv">$ifconfig</span> <span class="nt">-a</span>
 
 <span class="c"># Display the process in the system sorted by cup usage</span>
 <span class="nv">$top</span>
@@ -385,32 +368,30 @@ Ctrl + g
 
 <span class="c"># Display the top ten running processes - sorted by memory usage</span>
 <span class="c"># ps returns all running processes which are then sorted by the 4th field in numerical order and the top 10 are sent to STDOUT</span>
-<span class="nv">$ps</span> aux | sort -nk +4 | tail
+<span class="nv">$ps</span> aux | sort <span class="nt">-nk</span> +4 | tail
 
 <span class="c"># Delete all files in a folder that don't match a certain file extension</span>
-<span class="nv">$rm</span> !<span class="o">(</span><span class="k">*</span>.py|<span class="k">*</span>.java|<span class="k">*</span>.sh<span class="o">)</span>
-</code></pre>
-</div>
+<span class="nv">$rm</span> <span class="o">!(</span><span class="k">*</span>.py|<span class="k">*</span>.java|<span class="k">*</span>.sh<span class="o">)</span>
+</code></pre></div></div>
 
 <h3 id="using-hashtag-in--commands">Using hashtag in  commands</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># Run php command to kill the process</span>
-<span class="nv">$ps</span> -ef | grep php| awk  <span class="s1">'{print $2}'</span> | xargs <span class="nb">kill</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Run php command to kill the process</span>
+<span class="nv">$ps</span> <span class="nt">-ef</span> | <span class="nb">grep </span>php| awk  <span class="s1">'{print $2}'</span> | xargs <span class="nb">kill</span>
 
 <span class="c"># To run the same command we can do reverse search.</span>
 <span class="c">#However, if the command content is not unique appending hashtag may slove the issue.</span>
-<span class="nv">$ps</span> -ef | grep php| awk  <span class="s1">'{print $2}'</span> | xargs <span class="nb">kill</span> <span class="c">#kill_php</span>
-</code></pre>
-</div>
+<span class="nv">$ps</span> <span class="nt">-ef</span> | <span class="nb">grep </span>php| awk  <span class="s1">'{print $2}'</span> | xargs <span class="nb">kill</span> <span class="c">#kill_php</span>
+</code></pre></div></div>
 
 <h3 id="working-with-external-drives">Working with external drives</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># View All Mounts</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># View All Mounts</span>
 <span class="nv">$mount</span>
 
 <span class="c"># See the disk logical name</span>
-<span class="nv">$sudo</span> fdisk -l
+<span class="nv">$sudo</span> fdisk <span class="nt">-l</span>
 
 <span class="c"># The general mount command syntax to mount a device</span>
-<span class="nv">$mount</span> -t <span class="nb">type </span>device destination_dir
+<span class="nv">$mount</span> <span class="nt">-t</span> <span class="nb">type </span>device destination_dir
 
 <span class="c"># Mount drive sdd1</span>
 <span class="nv">$mount</span> /dev/sdd1 /mnt
@@ -418,8 +399,7 @@ Ctrl + g
 <span class="c"># Unmount drive /dev/sdd1</span>
 <span class="nv">$umount</span> /dev/sdd1
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
   </article>
 

@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
   <link rel="canonical" href="http://localhost:4000/blog/2018/tmux_cheatsheet/">
-<script src="http://127.0.0.1:35729/livereload.js"></script></head>
+</head>
 
 
   <body>
@@ -51,6 +51,8 @@
             <a class="page-link"  style="color:white"  href="http://localhost:4000/publications/">Publications</a>
           
         
+          
+        
 
         <!-- CV link -->
         <!-- <a class="page-link" href="http://localhost:4000/assets/pdf/CV.pdf">vitae</a> -->
@@ -69,102 +71,92 @@
         <div class="post">
 
   <header class="post-header">
+    
+
     <h1 class="post-title">Tmux Cheatsheet</h1>
     <p class="post-meta">May 16, 2018</p>
   </header>
 
   <article class="post-content">
     <h3 id="start-tmux">Start Tmux</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>tumx
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> tumx
+</code></pre></div></div>
 
 <h3 id="session">Session</h3>
 
 <p>Create a new session with a name</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>tmux new -s &lt;session-name&gt;
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> tmux new <span class="nt">-s</span> &lt;session-name&gt;
+</code></pre></div></div>
 
 <p>List of existing session</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>tmux ls
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> tmux <span class="nb">ls</span>
+</code></pre></div></div>
 
 <p>Attach to the existing session</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>tmux attach -t &lt;session name/number&gt;
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> tmux attach <span class="nt">-t</span> &lt;session name/number&gt;
+</code></pre></div></div>
 
 <p>Rename tmux session</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>tmux rename-session -t &lt;previous name/no&gt; &lt;new-name&gt;
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> tmux rename-session <span class="nt">-t</span> &lt;previous name/no&gt; &lt;new-name&gt;
+</code></pre></div></div>
 
 <p>Detach when inside tmux without ending the session</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>tmux detach
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> tmux detach
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="split-pane">Split Pane</h3>
 
 <p>Vertical split</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>C-b, %
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> C-b, %
+</code></pre></div></div>
 
 <p>Horizontal split</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>C-b, <span class="s2">"
-</span></code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> C-b, <span class="s2">"
+</span></code></pre></div></div>
 
 <p>Navigate Pane</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>C-b, &lt;arrow key&gt;
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> C-b, &lt;arrow key&gt;
+</code></pre></div></div>
 
 <p>Closing pane</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span><span class="nb">exit</span>
-<span class="gp">&gt; </span>C-d
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="nb">exit</span>
+<span class="o">&gt;</span> C-d
+</code></pre></div></div>
 
 <h3 id="windows">Windows</h3>
 
 <p>Creating new window:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>C-b, c
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> C-b, c
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="navigate-windows">Navigate windows</h4>
 
 <p>Previous window</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>C-b, p
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> C-b, p
+</code></pre></div></div>
 
 <p>Next window</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>C-b, n
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> C-b, n
+</code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>C-b, &lt;number&gt;
-</code></pre>
-</div>
+<p>Using window number</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> C-b, &lt;number&gt;
+</code></pre></div></div>
 
 
   </article>
