@@ -10,32 +10,32 @@ $$w_i := w_i - \alpha *  \frac{\partial E(w_i)}{\partial w_i}$$
 
 where, $w_i$ is the connection weight and $\alpha$ is the learning rate. Learning rate $\alpha$ controls magnitude of the change in the connection weight on each step of training process.
 
-In the above equation, partial derivative of the $E(w_i)$ w.r.t  $w_i$ give the direction in which weight should be changed to reduce the error. In the equation, the only computationally expensive operation is to compute partial derivative. Computing partial derivative is exponentially expensive when the number of layers of neural network increases. **Backpropagation is a cleaver and efficient way to compute partial derivative of error w.r.t. connection weight of the neural network**.
+In the above equation, the partial derivative of the $E(w_i)$ w.r.t  $w_i$ gives the direction in which the weight should be modified to reduce the error. In the equation, the only computationally expensive operation is to compute partial derivative. Without using backpropagation approach, with the increase in the number of layers of neural network computional complexity of the partial derivative increase exponentially. **Using backprogation technique, the partial derivative of error w.r.t connection weight can be computed efficienly.**
 
 ---
 #### **Refresher: Intuitive meaning of derivative and partial derivative**
-Let's assume $$x_1$$ is time allocated by a man for exercise and $$y$$ is the weight of the man. **The derivative of $$y$$  w.r.t.  $$x_1$$ means if the man makes a small change in the time allocated for the exercise how much his weight will change**. Mathematically, the derivative of $$y$$ w.r.t.  $$x_1$$ is represented as $$\frac{dy}{dx_1}$$
+Let's assume $$x_1$$ is time allocated by a person for the exercise and $$y$$ is the weight of the person. **The derivative of $$y$$  w.r.t.  $$x_1$$ means if the person makes a small change in the time allocated for the exercise how much the weight will change**. Mathematically, the derivative of $$y$$ w.r.t.  $$x_1$$ is represented as $$\frac{dy}{dx_1}$$.
 
-We know that diet ($$x_2$$) also has an effect on the weight of the person.  Analysis of change in the weight of the person w.r.t. a  small change in the exercise keeping diet same is given by the partial derivative of $$y$$ &nbsp; w.r.t. &nbsp; $$x_1$$. Mathematically, the partial derivative of $$y$$ w.r.t. $$\large x_1$$ is represented as $$\frac{\partial y}{\partial x_1}$$. Similarly, if the person keeps the time of exercise $$x_1$$ same and makes a small change in the diet $$x_2$$ it is represented as the partial derivative of $$y$$ w.r.t. $$x_2$$ which is represented as $$\frac{\partial y}{\partial x_2}$$
+We know that diet ($$x_2$$) also has an effect on the weight of the person.  Analysis of change in the weight of the person w.r.t. a small change in the time allocated for the exercise keeping diet same is given by the partial derivative of $$y$$ &nbsp; w.r.t. &nbsp; $$x_1$$. Mathematically, the partial derivative of $$y$$ w.r.t. $$x_1$$ is represented as $$\frac{\partial y}{\partial x_1}$$. Similarly, if the person keeps the exercise time $$x_1$$  the same and makes a small change in the diet $$x_2$$ it is represented as the partial derivative of $$y$$ w.r.t. $$x_2$$ which is represented as $$\frac{\partial y}{\partial x_2}$$.
 
 ---
 
  ![raw](/assets/img/nn/raw-nn.png){: .center-image}
 <center><h4>Figure 1: Toy neural network</h4></center>
 
-Figure 1 shows one of the simplest possible neural network which is good enough to understand details of the backpropagation algorithm. We consider input-layer as layer-1 ($$L_1$$), hidden-layer as ($$L_2$$) and output-layer as ($$L_3$$). $$ x_1$$  and $$ x_2$$ are input, blue nodes are nodes of hidden-layer and the red node is output-node. There are 6 connection weights $$ w_1$$ to $$ w_6$$. **In the training process we want to determine values of the connection weights which  minimize the square of error.**
+Figure 1 shows the simplest possible neural network which is good enough to understand details of the backpropagation algorithm. In the figure, input-layer is layer-1 ($$L_1$$), hidden-layer is ($$L_2$$) and output-layer is ($$L_3$$). $$ x_1$$  and $$ x_2$$ are input to the neural network, blue nodes are nodes of hidden-layer and the red node is output-node. There are 6 connection weights $$ w_1$$ to $$ w_6$$. In the training process we want to determine values of the connection weights which  minimize error. In this post regression error is minimized to explain the backpropagation technique but the idea remains the same for the classification problem as well.
 
  Square Error  (E) = $$\frac{(y-\hat{y})^2}{2}$$
 
-*Square of error is divided by 2 just to make computation clean and we know that constant does not affect optimization problem.*
+*As constant does not affect optimization problem, square of error is divided by 2 just to make the computation clean.*
 
 
-A node (blue/red) in Figure 1 represents three computations namely,  multiplication of an input and a weight, sum of all the results of multiplications and finally activation score which is non-linearity of the summation. To have a better insight about the neural network, we redraw a detailed diagram in Figure 2. Multiplier, summation and non-linearity function in Figure 2 is equivalent to a node in Figure 1.
+In Figure 1, each node (red/blue) represents three computations namely, multiplication of an input and a weight, sum of all the results of multiplications and finally activation score which is non-linearity of the summation. Figure 2 shows the clear and detailed view of the neural network which consists of multiplier, summation unit and non-linearity unit. Combination of the multiplier, summation and non-linearity function in Figure 2 is equivalent to a node in Figure 1.
 
   ![raw](/assets/img/nn/nn-detail.png){: .center-image}
 <center><h4>Figure 2: Equivalent detailed view of the toy neural network</h4></center>
 
-The way to read $$ z_1^{(2)}$$ is z of  node-1 in layer-2 [**Note: subscript => item number and superscript => layer-number**] . $$ a_1^{(2)}$$ is the activation score of node-1 in layer-2. Following expressions can be obtained from figure 2 <br />
+$$ z_1^{(2)}$$ is z of  node-1 in layer-2 (*Note: subscript => item number and superscript => layer-number*) and $$ a_1^{(2)}$$ is the activation score of node-1 in layer-2. Following equation is used to compute $$ z_i^{(j)}$$ and $$ a_i^{(j)}$$ in the figure 2 <br />
 $$z_1^{(2)} = x_1 * w_1 + x_2 * w_3 $$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  $$ z_2^{(2)} = x_1 * w_2 + x_2 * w_4$$ <br />
 $$  a_1^{(2)} = f(z_1^{(2)})$$   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $$  a_2^{(2)} = f(z_2^{(2)})$$ <br/>
 $$  z_1^{(3)} = a_1^{(2)} * w_5 + a_1^{(2)} * w_6$$  &nbsp; &nbsp; &nbsp; &nbsp;  $$  a_1^{(3)} = f(z_1^{(3)}) = \hat{y}$$ <br/>
@@ -46,7 +46,12 @@ Backpropagation is all about computing partital derivative efficiently. Using ba
 
 The partial derivative of error with respect to weight gives **amount by which error will change if there is a small change in the weight**. To calcualate the partial derivative of error w.r.t. weight  $$ \frac{\partial E}{\partial w_1}$$ **chain rule** is used.
 
-$$ \frac{\partial E}{\partial w_1} = \frac{\partial E}{\partial a_1^{(3)}} \frac{\partial a_1^{(3)}}{\partial w_1} = \frac{\partial E}{\partial a_1^{(3)}} \frac{\partial a_1^{(3)}}{\partial z_1^{(3)}}   \frac{\partial z_1^{(3)}}{\partial w_1} = \frac{\partial E}{\partial a_1^{(3)}} \frac{\partial a_1^{(3)}}{\partial z_1^{(3)}}   \frac{\partial z_1^{(3)}}{\partial a_1^{(2)}} \frac{\partial a_1^{(2)}}{\partial w_1}  = \frac{\partial E}{\partial a_1^{(3)}} \frac{\partial a_1^{(3)}}{\partial z_1^{(3)}}   \frac{\partial z_1^{(3)}}{\partial a_1^{(2)}} \frac{\partial a_1^{(2)}}{\partial z_1^{(2)}} \frac{\partial z_1^{(2)}}{\partial w_1}$$
+$$ \frac{\partial E}{\partial w_1} = \frac{\partial E}{\partial a_1^{(3)}} \frac{\partial a_1^{(3)}}{\partial w_1}$$ <br />
+
+$$= \frac{\partial E}{\partial a_1^{(3)}} \frac{\partial a_1^{(3)}}{\partial z_1^{(3)}}   \frac{\partial z_1^{(3)}}{\partial w_1}$$
+<br />
+$$= \frac{\partial E}{\partial a_1^{(3)}} \frac{\partial a_1^{(3)}}{\partial z_1^{(3)}}   \frac{\partial z_1^{(3)}}{\partial a_1^{(2)}} \frac{\partial a_1^{(2)}}{\partial w_1} $$  <br />
+$$= \frac{\partial E}{\partial a_1^{(3)}} \frac{\partial a_1^{(3)}}{\partial z_1^{(3)}}   \frac{\partial z_1^{(3)}}{\partial a_1^{(2)}} \frac{\partial a_1^{(2)}}{\partial z_1^{(2)}} \frac{\partial z_1^{(2)}}{\partial w_1}$$
 
 To come up with the expression from Figure 1 can be confusing. However, if we construct a detailed view of the neural network as in Figure 2 then getting the expression is simply following chain rule from **output to input** (note it is backward). For $$ w_2$$ to $$ w_6$$, the partial derivatives of error with respect to the weights can be calculated in the same way.
 
