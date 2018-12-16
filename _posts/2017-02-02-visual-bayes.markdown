@@ -17,7 +17,7 @@ Venn Diagram is one of the easiest ways to visualize the Bayes Rule. For that, I
 #### Now suppose a person get a positive test result. What are the chances the person has cancer?
 ####  80%? 99%? 1%?
 
-P(Cancer | Test is Positive ) = ??
+$$P(\textrm{Cancer}|\textrm{Test result}=+)=??$$
 
 It looks like the right hand side of Bayes Formula. COOL!!
 
@@ -47,13 +47,10 @@ Hence, P(C=1|T=1) =
 
 
 ---
-### Using Bayes Formula
-
-$$ P(C|T) = \frac{P(T|C)*P(C)}{P(T)} = \frac{P(T \cap C)} {P(T) }$$
 
 
 
-### Using the areas to compute the  probability.
+#### Using the areas to compute the  probability.
 
 80% of women having cancer are identified by test P(T=1|C=1)
 = 80% = ![test_true_given_cancer](/assets/img/bayes/test_true_given_cancer.png)
@@ -70,12 +67,19 @@ Probability of cancer given test is positive $P(C=1|T= 1)$ = ![cancer_given_test
 
 = 0.0776 = **7.76%**
 
+---
+#### Using Bayes Formula
+
+$$ P(C|T) = \frac{P(T|C)*P(C)}{P(T)} = \frac{P(T \cap C)} {P(T) }$$
+
+![cancer_given_test_true](/assets/img/bayes/cancer_given_test_true.png)
+
+
 
 ---
-
 $$Posterior =\frac{\textrm{(Prior X Likelihood)}} {\textrm{Evidence}}$$
 
-$$p(cancer=1|\textrm{test_result}=+)=\frac{p(\textrm{test_result}=+|cancer=1) * p(cancer=1)} {p(\textrm{test_result}=+)}$$
+$$p(cancer=1|\textrm{test result}=+)=\frac{p(\textrm{test result}=+|cancer=1) * p(cancer=1)} {p(\textrm{test result}=+)}$$
 
 ### References:
 
