@@ -1,16 +1,17 @@
 ---
 layout: post
-title: Tmux Cheatsheet
+title: Cheatsheet
 date: 2018-05-16
 Tags: Linux
 ---
+### TMUX cheetsheet
 
-### Start Tmux
+#### Start Tmux
 ```shell
 > tumx
 ```
 
-### Session
+#### Session
 
 Create a new session with a name
 
@@ -43,17 +44,14 @@ Detach when inside tmux without ending the session
 
 ```
 
-### Split Pane
+#### Pane
 
-Vertical split
-
+Split pane
 ```shell
+# Vertical split
 > C-b, %
-```
 
-Horizontal split
-
-```shell
+# Horizontal split
 > C-b, "
 ```
 
@@ -64,43 +62,28 @@ Navigate Pane
 ```
 
 
-Closing pane
+Close pane
 
 ```shell
 > exit
 > C-d
 ```
 
-
-### Windows
-
-Creating new window:
+#### Windows
 
 ```shell
+# create new windows
 > C-b, c
 
-```
-
-#### Navigate windows
-
-Previous window
-
-```shell
+# Move cursor to previous window
 > C-b, p
-```
 
-Next window
-
-```shell
+# Move cursor to next window
 > C-b, n
-```
 
-Using window number
-
-```shell
+#Move cursor using window number
 > C-b, <number>
 ```
-
 
 
 

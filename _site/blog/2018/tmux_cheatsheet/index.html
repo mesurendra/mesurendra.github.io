@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Surendra Sedhai | Tmux Cheatsheet</title>
+  <title>Surendra Sedhai | Cheatsheet</title>
   <meta name="description" content="Lets explore :) .
 ">
 
@@ -73,16 +73,18 @@
   <header class="post-header">
     
 
-    <h1 class="post-title">Tmux Cheatsheet</h1>
+    <h1 class="post-title">Cheatsheet</h1>
     <p class="post-meta">May 16, 2018</p>
   </header>
 
   <article class="post-content">
-    <h3 id="start-tmux">Start Tmux</h3>
+    <h3 id="tmux-cheetsheet">TMUX cheetsheet</h3>
+
+<h4 id="start-tmux">Start Tmux</h4>
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> tumx
 </code></pre></div></div>
 
-<h3 id="session">Session</h3>
+<h4 id="session">Session</h4>
 
 <p>Create a new session with a name</p>
 
@@ -110,16 +112,14 @@
 
 </code></pre></div></div>
 
-<h3 id="split-pane">Split Pane</h3>
+<h4 id="pane">Pane</h4>
 
-<p>Vertical split</p>
+<p>Split pane</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Vertical split</span>
+<span class="o">&gt;</span> C-b, %
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> C-b, %
-</code></pre></div></div>
-
-<p>Horizontal split</p>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> C-b, <span class="s2">"
+<span class="c"># Horizontal split</span>
+<span class="o">&gt;</span> C-b, <span class="s2">"
 </span></code></pre></div></div>
 
 <p>Navigate Pane</p>
@@ -127,35 +127,25 @@
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> C-b, &lt;arrow key&gt;
 </code></pre></div></div>
 
-<p>Closing pane</p>
+<p>Close pane</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="nb">exit</span>
 <span class="o">&gt;</span> C-d
 </code></pre></div></div>
 
-<h3 id="windows">Windows</h3>
+<h4 id="windows">Windows</h4>
 
-<p>Creating new window:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># create new windows</span>
+<span class="o">&gt;</span> C-b, c
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> C-b, c
+<span class="c"># Move cursor to previous window</span>
+<span class="o">&gt;</span> C-b, p
 
-</code></pre></div></div>
+<span class="c"># Move cursor to next window</span>
+<span class="o">&gt;</span> C-b, n
 
-<h4 id="navigate-windows">Navigate windows</h4>
-
-<p>Previous window</p>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> C-b, p
-</code></pre></div></div>
-
-<p>Next window</p>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> C-b, n
-</code></pre></div></div>
-
-<p>Using window number</p>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> C-b, &lt;number&gt;
+<span class="c">#Move cursor using window number</span>
+<span class="o">&gt;</span> C-b, &lt;number&gt;
 </code></pre></div></div>
 
 

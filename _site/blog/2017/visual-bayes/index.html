@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Surendra Sedhai | Visual Bayes</title>
+  <title>Surendra Sedhai | Visual Explanation of Bayes Rule</title>
   <meta name="description" content="Lets explore :) .
 ">
 
@@ -72,21 +72,34 @@
 
   <header class="post-header">
     
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script
+  type="text/javascript"
+  charset="utf-8"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+>
+</script>
+<script
+  type="text/javascript"
+  charset="utf-8"
+  src="https://vincenttam.github.io/javascripts/MathJaxLocal.js"
+>
+</script>
 
-    <h1 class="post-title">Visual Bayes</h1>
+
+    <h1 class="post-title">Visual Explanation of Bayes Rule</h1>
     <p class="post-meta">February 2, 2017</p>
   </header>
 
   <article class="post-content">
-    
-<hr />
-<p>layout: post
-title: Visual Explanation of Bayes Rule
-Date: 2017-02-10
-Tags: Statistics, ML
-—</p>
-
-<p>Venn Diagram is one of the easiest ways to visualize the Bayes Rule. For that, I take a classical example of computing probability of cancer given the test result is positive.</p>
+    <p>Venn Diagram is one of the easiest ways to visualize the Bayes Rule. For that, I take a classical example of computing probability of cancer given the test result is positive.</p>
 
 <h3 id="anatomy-of-a-test">Anatomy of a Test</h3>
 
@@ -99,7 +112,14 @@ Tags: Statistics, ML
 <h4 id="now-suppose-a-person-get-a-positive-test-result-what-are-the-chances-the-person-has-cancer">Now suppose a person get a positive test result. What are the chances the person has cancer?</h4>
 <h4 id="80-99-1">80%? 99%? 1%?</h4>
 
-<h4 id="pcancer--test-is-positive---">P(Cancer | Test is Positive ) = ??</h4>
+<table>
+  <tbody>
+    <tr>
+      <td>P(Cancer</td>
+      <td>Test is Positive ) = ??</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>It looks like the right hand side of Bayes Formula. COOL!!</p>
 
@@ -111,7 +131,7 @@ Tags: Statistics, ML
 
 <p>Area representing women having cancer (C=1) : <img src="/assets/img/bayes/cancer.png" alt="Bayes_cancer" /></p>
 
-<p>Probability of  breast cancer P(C=1) =  1%</p>
+<p>Probability of breast cancer P(C=1) =  1%</p>
 
 <p>Probability of not having cancer P(C=0) = (100 - 1)% = 99 %</p>
 
@@ -120,50 +140,38 @@ Tags: Statistics, ML
 <p>Area representing positive result (T) (saying the woman has cancer) P(T=1):
 <img src="/assets/img/bayes/positive_test.png" alt="positive_test" /></p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>Hence,  P(C= 1</td>
-      <td>T= 1) =  <img src="/assets/img/bayes/cancer_given_test_true.png" alt="cancer_given_test_true" /></td>
-    </tr>
-  </tbody>
-</table>
+<p>Hence, P(C=1|T=1) =
+<img src="/assets/img/bayes/cancer_given_test_true.png" alt="cancer_given_test_true" /></p>
 
-<h4 id="visually-problem-is-solved">Visually problem is solved!!</h4>
-
-<p>Using Bayes Formula
- <script type="math/tex">\large P(C|T) = \frac{P(T|C) P(C)}{P(T)} = \frac{P(T \cap C)} {P(T)}</script></p>
+<h4 id="visually-problem-is-solved">Visually problem is solved</h4>
 
 <hr />
+<h3 id="using-bayes-formula">Using Bayes Formula</h3>
+
+<script type="math/tex; mode=display">P(C|T) = \frac{P(T|C)*P(C)}{P(T)} = \frac{P(T \cap C)} {P(T) }</script>
+
 <h3 id="using-the-areas-to-compute-the--probability">Using the areas to compute the  probability.</h3>
 
 <p>80% of women having cancer are identified by test P(T=1|C=1)
 = 80% = <img src="/assets/img/bayes/test_true_given_cancer.png" alt="test_true_given_cancer" /></p>
 
-<p>P(T intersection C) = 80% of 1% = 0.8 * 0.01  = 0.008 = <img src="/assets/img/bayes/cancer_identified.png" alt="cancer_identified" />
+<p>$P(T \cap C)$ = 80% of 1% = 0.8 * 0.01  = 0.008 = <img src="/assets/img/bayes/cancer_identified.png" alt="cancer_identified" />
 <script type="math/tex">P(T=1) =  P(T=1 \cap C=0) +  P(T=1 \cap C=1)</script></p>
 
 <p>= <img src="/assets/img/bayes/total_test_true.png" alt="total_test_true" /></p>
 
-<p>=  0.09504 + 0.008 = 0.10304</p>
+<p>= 0.09504 + 0.008 = 0.10304</p>
 
-<p>Probability of cancer given test is positive P(C= 1| T= 1) = <img src="/assets/img/bayes/cancer_given_test_true.png" alt="cancer_given_test_true" />
+<p>Probability of cancer given test is positive $P(C=1|T= 1)$ = <img src="/assets/img/bayes/cancer_given_test_true.png" alt="cancer_given_test_true" />
 = 0.008/  0.10304</p>
 
-<p>= 0.0776 = ** 7.76% **</p>
+<p>= 0.0776 = <strong>7.76%</strong></p>
 
 <hr />
-<p>Posterior = (prior * likelihood)/ Evidence</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>P(c=0</td>
-      <td>t=0) = p(t=0</td>
-      <td>c=0) *</td>
-    </tr>
-  </tbody>
-</table>
+<script type="math/tex; mode=display">Posterior =\frac{\textrm{(Prior X Likelihood)}} {\textrm{Evidence}}</script>
+
+<script type="math/tex; mode=display">p(cancer=1|\textrm{test_result}=+)=\frac{p(\textrm{test_result}=+|cancer=1) * p(cancer=1)} {p(\textrm{test_result}=+)}</script>
 
 <h3 id="references">References:</h3>
 
